@@ -1,0 +1,426 @@
+
+<!doctype html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>CoronaSurvey</title>
+		<style> 
+			body{
+			
+			font-family: Cambria, "Hoefler Text", "Liberation Serif", Times, "Times New Roman", "serif";
+			background-image: url(""rubenkot.png"");
+			}
+		
+			.titel{
+				font-size: 75px;
+				text-align: center;
+				margin-top: 10px;
+			}
+		
+			.instructions{
+				text-align: center;
+				font-size: 42px;
+			}
+			.diclaimer{
+				text-align: center;
+				font-size: 10px;
+			}
+			.genderformclass{
+				display: block;
+				text-align: center;
+			}
+			Label{
+				width: 240px;
+				display: inline-block;
+				text-align: left
+			}
+			.formtitels{
+				margin-left: 500px;
+				
+				
+			}
+			.agegroupinput{
+				margin-left: 820px;
+				
+			}
+			.stateinput{
+				margin-left: 820px;
+			}
+			.slider{
+				margin-left: 820px;
+			}
+			.slidervaluetext{  
+				
+			}
+			.slidecontainer{
+				margin-left: 820px;
+			}
+			.posetiveform{
+				margin-left: 820px;
+				
+			}
+			.commenttextare{
+				margin-left: 820px;
+				width: 300px;
+				height: 100px;
+			}
+			.emailinput{
+				margin-left: 820px;
+			}
+			.submitbutton{
+				margin-left: 875px;
+			}
+			.negativeform{
+				margin-left: 820px;
+				
+			}
+			.neggativeselect{
+				height: 105px;
+			}
+			.posetiveselect{
+				height: 105px;
+			}
+			.notdone{
+				margin-left: 1000px;
+				color: #FF0004;
+				
+			}
+			.ndgender{
+				display: none;
+			}
+			.ndstate{
+				display: none;
+			}
+			.ndage{
+				display: none;
+			}
+			th, td, tr{
+  				border: 1px solid black;
+				
+			}
+			.termscheck{
+				margin-left: 820px;
+			}
+			.notagreed{
+				text-align: center;
+				color: #FF0004;
+				display: none;
+			}
+		</style>
+		<script>
+			
+			function submitfunc(){
+			var checkbox= document.getElementById("termsid")
+			var pleaseagree= document.getElementById("notagreed")
+			
+			if (checkbox.checked == false){
+				pleaseagree.style.display = "block"
+			}
+			else{
+				pleaseagree.style.display= "none"
+			
+				var gender= document.genderform.gender.value
+				//alert(gender)	
+				var age= document.ageform.agegroup.value
+				
+				var state = document.stateform.state.value
+				//alert(state)
+				var slidervar = document.sliderform.sliderabcd.value
+				//alert(slidervar)
+				var comments = document.endform.comentarea.value
+				//alert(comments)
+				var email = document.endform.submitemailbox.value
+				//alert(email)
+				
+				
+				
+				/* 
+				var sliderout=""
+				alert(slidervar)
+				
+				if (slidervar = "1"){
+					//sliderout = slidervar + " = not worried at all"}
+			
+				if(slidervar = "2"){
+					sliderout = slidervar + " = not worried at all"}
+			
+				else if (slidervar = "3"){
+					sliderout = slidervar + " = not worried at all"}
+				
+				else if (slidervar = "4"){
+					sliderout = slidervar + " = sleightly worried"}
+				
+				else if (slidervar = 5){
+					sliderout = slidervar + " = sleightly worried"}
+				
+				else if (slidervar = 6){
+					sliderout = slidervar + " = sleightly worried"}
+				
+				else if (slidervar = 7){
+					sliderout= slidervar + " = moderatly worryed"}
+				
+				else if (slidervar = 8){
+					sliderout= slidervar + " = moderatly worryed"}
+				
+				else if (slidervar = 9){
+					sliderout= slidervar + " = moderatly worryed"}
+				
+				else if (slidervar = 10){
+					sliderout= slidervar + " = worryed"}
+				
+				else if (slidervar = 11){
+					sliderout= slidervar + " = worryed"}
+				
+				else if (slidervar = 12){
+					sliderout= slidervar + " = worryed"}
+				
+				else if (slidervar = 13){
+					sliderout= slidervar + " = highly worried"}
+				
+				else if (slidervar = 14){
+					sliderout= slidervar + " = highly worried"}
+				
+				else if (slidervar = 15){
+					sliderout= slidervar + " = highly worried"}
+				
+				else if (slidervar = 16){
+					sliderout = slidervar + " = extremly worried"}
+				
+				else if (slidervar = 17){
+					sliderout = slidervar + " = extremly worried"}
+				
+				else if (slidervar = 18){
+					sliderout = slidervar + " = extremly worried"}
+				
+				else if (slidervar = 19){}
+					sliderout= slidervar + " = will we survive this?"}
+			
+				else if (slidervar = 20){}
+					sliderout= slidervar + " = will we survive this?"}
+				
+				
+				
+				
+				
+				*/
+				
+				
+				document.getElementById("tablediv").style.display = "block"
+				
+				var tablejs = document.getElementById("outputtable")
+				tablejs.rows[1].cells[1].textContent= gender
+				tablejs.rows[2].cells[1].textContent= age
+				tablejs.rows[3].cells[1].textContent= state
+				tablejs.rows[4].cells[1].textContent= slidervar
+				tablejs.rows[5].cells[1].textContent= comments
+				tablejs.rows[6].cells[1].textContent= email
+				
+				
+				//This was going to be the code that tells you if you have completed all of the questions. However I have not hade enough time to debug it
+				/*var ndgenderjs = document.getElementById("ndgender")
+				var ndagejs = document.getElementById("ndage")
+				var ndstatejs = document.getElementById("ndstate")
+				
+				
+				if(gender = " "){
+					ndgenderjs.style.display = "block"}
+				
+				if(age = "empty"){
+					ndage.style.display = "block"}
+					
+				if(state = "empty"){
+					ndstate.style.display = "block"}*/
+					
+				
+					
+				
+			
+				
+			}
+			}
+			
+</script>
+
+	</head>
+
+	<body>
+		<div name="TopText">
+			<p class = "titel">General Covid-19 Survey</p>
+			<p class = "instructions">This Form is created to capture the opinions of <br>German Citezens on the new Covid-19 restrictions</p>
+			<p class = "diclaimer">This Information collected will only be shared with the "Ruben Kot Institute" and will be delete after 30 days</p><br><br>
+		</div>
+		
+		<div name="gendersec">
+		<p class = "formtitels">Please enter witch gender you asocieate with</p>
+		<p class ="ndgender notdone" id="ndgender">Please Complete this section</p>
+		<form name="genderform" class="genderformclass">
+		
+			<label for="male">Male</label>
+			<input type="radio" name="gender"  class="genderforminput" value="male"><br>
+			<label for="female">Female</label>	
+			<input type="radio" name="gender"  class="genderforminput" value="female"><br>
+			<label for="other">Other</label>	
+			<input type="radio" name="gender" class="genderforminput" value="other"><br>
+				
+		</form>
+		</div>
+		<br>
+		
+		<div name="agesec">
+		<form name="ageform" class="agegroupform">
+		<p class="formtitels">Please enter what age Groupe you belong to</p><br>
+		<p class="notdone ndage" id="ndage">Please Complete this section</p>
+		<select name="agegroup" class="agegroupinput">
+			<option value="empty">-Select-</option>
+			<option value="0-10">0-10</option>
+			<option value="11-18">11-18</option>
+			<option value="19-29">19-29</option>
+			<option value="30-45">30-45</option>
+			<option value="46-55">46-55</option>
+			<option value="56-70">56-70</option>
+			<option value="71-80">71-80</option>
+			<option value="81-90">81-90</option>
+			<option value="90+">90+</option>
+			</select>
+		
+			</form>
+		<br>
+		</div>
+		<br>
+		<div name="statesec">
+			<p class="formtitels">Please select the state you live in</p>
+			<p class="ndstate notdone" id="ndstate">Please Complete this section</p>
+			<form name="stateform">
+			<select name="state" class="stateinput">
+				<option value="empty">-Select-</option>
+				<option value="Baden-Württemberg">Baden-Württemberg</option>
+				<option value="Bayern">Bayern</option>
+				<option value="Berlin">Berlin</option>
+				<option value="Brandenburg">Brandenburg</option>
+				<option value="Bremen">Bremen</option>
+				<option value="Hamburg">Hamburg</option>
+				<option value="Hessen">Hessen</option>
+				<option value="Mecklenburg-Vorpommern">Mecklenburg-Vorpommern</option>
+				<option value="Niedersachsen">Niedersachsen</option>
+				<option value="Nordrhein-Westfalen">Nordrhein-Westfalen</option>
+				<option value="Rheinland-Pfalz">Rheinland-Pfalz</option>
+				<option value="Saarland">Saarland</option>
+				<option value="Sachsen">Sachsen</option>
+				<option value="Sachsen-Anhalt">Sachsen-Anhalt</option>
+				<option value="Schleswig-Holstein">Schleswig-Holstein</option>
+				<option value="Thüringen">Thüringen</option>
+			</select>
+				</form>
+		</div>
+			
+		<br>
+		<div name = "generalopinionsec">
+			
+			<p class="formtitels">Below please select how safe you curently feel regarding the pandemic. (1 = not safe, 20 = very safe)</p>
+			
+				<form name="sliderform"><input type="range" name="sliderabcd" min="1" max="20" value="10" class="slider" id="slider1" ></form>
+			
+ 			<p class="slidervalue" style="margin-left: 820px"><span id="demo"></span></p>
+			
+			
+			<script>
+				var slider = document.getElementById("slider1");
+				var output = document.getElementById("demo");
+					output.innerHTML = slider.value;
+
+				slider.oninput = function() {
+  					output.innerHTML = this.value;
+					}
+			</script>
+			</div>
+		<br>
+		<div name="positiveaspects">
+			<p class="formtitels">Next please select aspects witch you think afects you and the country poitivly</p>
+			<form name="posetives" class="posetiveform">
+				
+				<select multiple class="posetiveselect" id="posetivesid">
+					<option  valaue="contact restrictions">Contact restrictions<br></option>
+					<option valaue="Mask Requirments">Mask Requirments<br></option>
+					<option valaue="Stores and buisneses having to close">Stores and buisneses having to close<br></option>
+					<option valaue="Schools closing">Schools closing<br></option>
+					<option valaue="Newly developed Vaciens">Newly developed Vaciens<br></option>
+					<option valaue="A Manditory Covid Vacination">A Manditory Covid Vacination<br></option>
+				</select>
+			</form>
+		</div>
+		<br>
+		
+		<div name="negativeaspects">
+			<p class="formtitels">Now please select aspects witch you think afect you and the country negativly</p>
+			<form name="negatives" class="negativeform">
+				<select multiple class="neggativeselect" id="negativesid">
+					<option  valaue="contact restrictions">Contact restrictions<br></option>
+					<option valaue="Mask Requirments">Mask Requirments<br></option>
+					<option valaue="Stores and buisneses having to close">Stores and buisneses having to close<br></option>
+					<option valaue="Schools closing">Schools closing<br></option>
+					<option valaue="Newly developed Vaciens">Newly developed Vaciens<br></option>
+					<option valaue="A Manditory Covid Vacination">A Manditory Covid Vacination<br></option>
+				</select>
+			
+			</form>
+		</div>
+		<br>
+		<div name="commentsec">
+			<p class="formtitels">Please add any additinal feedback here:</p>
+			
+			<form name="endform">
+				<textarea name="comentarea" class="commenttextare" vlaue="Comments/Feedback">Comments/Feedback</textarea>
+				
+				<br>
+				<div name="emailsec">
+					<p style="text-align: center">Thankyou for completing the survey. If you would like to recive a comfirmation please enter your email below. Then press Submit.</p>
+					<input type="text" name="submitemailbox" value="example@email.rki" class ="emailinput">
+					<br><br><br><br>
+					
+					<input type="checkbox" name="terms" id="termsid" class="termscheck"> Please agree to the Terms of service
+					<br>
+					<p class="notagreed" id="notagreed">Please agree to the Terms of Service</p>
+					
+					<br><br><br>
+					<input type="button" name="submit" value="Submit" onCLick="submitfunc()" class="submitbutton">
+					</div>
+			</form>
+		</div>
+		<div name = "table" class="outputtable" id ="tablediv" style="display: none">
+			<center>
+					<table id="outputtable">
+					<tr>
+						<th width="300px">Question</th>
+						<th width="300px">Input</th>	
+					</tr>
+					<tr>
+						<td>Your Gender</td>
+						<td></td>
+					</tr>
+					<tr>
+						<td>Your age</td>
+						<td></td>
+					</tr>
+					<tr>
+						<td>The current state you are living in</td>
+						<td></td>
+					</tr>
+					<tr>
+						<td>Your General opinion about the pandemic</td>
+						<td></td>
+					</tr>
+					<tr>
+						<td>Your Comments</td>
+						<td></td>
+					</tr>
+					<tr>
+						<td>Your Email</td>
+						<td></td>
+					</tr>
+		
+				</table>
+			</center>
+		</div>
+		
+	</body>
+</html>
